@@ -1,0 +1,2 @@
+rootProject.name = "mealDb"
+include ':app'
