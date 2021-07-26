@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/fragmentHome">
+
+    <fragment
+        android:id="@+id/fragmentHome"
+        android:name="com.example.mealdb.ui.home.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/actionHomeToMeal"
+            app:destination="@id/fragmentMeal" />
+        <action
+            android:id="@+id/actionHomeToSearch"
+            app:destination="@id/fragmentSearch" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragmentMeal"
+        android:name="com.example.mealdb.ui.meal.MealFragment"
+        android:label="MealFragment"
+        tools:layout="@layout/fragment_meal">
+        <argument
+            android:name="category"
+            app:argType="com.example.mealdb.data.model.Category" />
+        <action
+            android:id="@+id/actionMealToMealDetail"
+            app:destination="@id/fragmentMealDetail" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragmentSearch"
+        android:name="com.example.mealdb.ui.search.SearchFragment"
+        android:label="SearchFragment"
+        tools:layout="@layout/fragment_search">
+        <action
+            android:id="@+id/actionSearchToMealDetail"
+            app:destination="@id/fragmentMealDetail" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragmentMealDetail"
+        android:name="com.example.mealdb.ui.detail.MealDetailFragment"
+        android:label="MealDetailFragment"
+        tools:layout="@layout/fragment_meal_detail">
+
+        <argument
+            android:name="meal"
+            app:argType="com.example.mealdb.data.model.Meal" />
+
+        <action
+            android:id="@+id/actionMealDetailToImage"
+            app:destination="@id/fragmentImageZoom" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragmentFavorite"
+        android:name="com.example.mealdb.ui.favorite.FavoriteFragment"
+        android:label="FavoriteFragment"
+        tools:layout="@layout/fragment_favorite">
+        <action
+            android:id="@+id/actionFavoriteToMealDetail"
+            app:destination="@id/fragmentMealDetail" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragmentImageZoom"
+        android:name="com.example.mealdb.ui.imagezoom.ImageZoomFragment"
+        android:label="ImageZoomFragment"
+        tools:layout="@layout/fragment_image_zoom">
+
+        <argument
+            android:name="image"
+            app:argType="com.example.mealdb.data.model.Meal" />
+
+    </fragment>
+
+</navigation>
