@@ -1,6 +1,6 @@
 package com.example.mealdb.di
 
-import com.example.mealdb.utils.Constants
+import com.example.mealdb.utils.BASE_URL
 import okhttp3.OkHttpClient
 import org.koin.dsl.module
 import retrofit2.Retrofit
@@ -23,7 +23,7 @@ val networkModule = module {
 
     fun initRetrofit(client: OkHttpClient): Retrofit =
         Retrofit.Builder()
-            .baseUrl(Constants.BASE_URL)
+            .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
             .client(client)

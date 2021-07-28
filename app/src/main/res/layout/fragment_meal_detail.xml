@@ -15,7 +15,6 @@
            android:layout_width="match_parent"
            android:layout_height="match_parent"
            android:background="@color/color_aqua_spring">
-
            <androidx.core.widget.NestedScrollView
                android:layout_width="match_parent"
                android:layout_height="match_parent">
@@ -165,6 +164,16 @@
                        app:layout_constraintTop_toBottomOf="@id/textRelated"
                        app:spanCount="1"
                        tools:listitem="@layout/item_related_meal" />
+
+                   <include
+                       layout="@layout/dialog_loading"
+                       android:layout_width="match_parent"
+                       android:layout_height="match_parent"
+                       app:layout_constraintBottom_toBottomOf="parent"
+                       app:layout_constraintEnd_toEndOf="parent"
+                       app:layout_constraintStart_toStartOf="parent"
+                       app:layout_constraintTop_toTopOf="parent"
+                       app:loading="@{mealDetailVM.isLoading()}" />
                </androidx.constraintlayout.widget.ConstraintLayout>
            </androidx.core.widget.NestedScrollView>
 
@@ -208,12 +217,6 @@
                    app:layout_constraintTop_toTopOf="parent" />
 
            </androidx.constraintlayout.widget.ConstraintLayout>
-
-           <include
-               layout="@layout/dialog_loading"
-               android:layout_width="match_parent"
-               android:layout_height="match_parent"
-               app:loading="@{mealDetailVM.isLoading()}" />
        </androidx.coordinatorlayout.widget.CoordinatorLayout>
    </ScrollView>
 </layout>

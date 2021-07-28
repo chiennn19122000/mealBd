@@ -7,7 +7,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.mealdb.base.BaseViewModel
 import com.example.mealdb.data.source.remote.Api
-import com.example.mealdb.utils.Constants
+import com.example.mealdb.utils.BASE_URL
+import com.example.mealdb.utils.FOLDER
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
@@ -31,7 +32,7 @@ class ImageZoomViewModel : BaseViewModel() {
 
     fun downloadImg(url: String) {
         val retrofitImage = Retrofit.Builder()
-            .baseUrl(Constants.BASE_URL)
+            .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
@@ -52,7 +53,7 @@ class ImageZoomViewModel : BaseViewModel() {
     }
 
     private fun saveImage1(bitmap: Bitmap?) {
-        val path = Environment.getExternalStorageDirectory().toString() + Constants.FOLDER
+        val path = Environment.getExternalStorageDirectory().toString() + FOLDER
         val dir = File(path)
         if (!dir.exists()) {
             dir.mkdirs()

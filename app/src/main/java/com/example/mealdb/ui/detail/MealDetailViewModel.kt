@@ -49,13 +49,11 @@ class MealDetailViewModel(
             .subscribe({
                 _meal.value = it
                 getMealByCategory(it.get(0).strCategory)
-                Log.e("Tag",it.get(0).idMeal.toString())
                 _ingredient.value = StringBuilder().run {
                     for (i in 1..20) {
                         var ingredient = ""
                         if (JSONObject(Gson().toJson(it.get(0))).has("$INGREDIEN$i"))
                             ingredient = JSONObject(Gson().toJson(it.get(0))).getString("$INGREDIEN$i")
-                        Log.e("Tag",i.toString()+" " + ingredient)
                         if (ingredient.isEmpty() || ingredient == "null") break
                         append(ingredient).append('\n')
                     }

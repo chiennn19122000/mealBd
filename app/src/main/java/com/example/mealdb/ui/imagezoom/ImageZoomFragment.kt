@@ -4,7 +4,6 @@ import android.Manifest
 import android.annotation.SuppressLint
 import android.content.pm.PackageManager
 import android.os.Build
-import android.util.Log
 import android.view.MotionEvent
 import android.view.ScaleGestureDetector
 import android.view.View
@@ -15,7 +14,9 @@ import androidx.navigation.fragment.navArgs
 import com.example.mealdb.R
 import com.example.mealdb.base.BaseFragment
 import com.example.mealdb.databinding.FragmentImageZoomBinding
-import com.example.mealdb.utils.Constants
+import com.example.mealdb.utils.BASE_URL
+import com.example.mealdb.utils.FOLDER
+import com.example.mealdb.utils.MESSAGE_SUCCESS
 import com.example.mealdb.utils.showToast
 import kotlinx.android.synthetic.main.fragment_image_zoom.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -53,9 +54,9 @@ class ImageZoomFragment : BaseFragment<FragmentImageZoomBinding>() {
             }
             imageDowload.setOnClickListener {
                 if (onRequestPermissionsResult()) {
-                    val url = args.image.strMealThumb.substring(Constants.BASE_URL.length)
+                    val url = args.image.strMealThumb.substring(BASE_URL.length)
                     viewModel.downloadImg(url)
-                    context?.showToast(Constants.MESSAGE_SUCCESS + " " + Constants.FOLDER)
+                    context?.showToast(MESSAGE_SUCCESS + " " + FOLDER)
                 }
             }
         }

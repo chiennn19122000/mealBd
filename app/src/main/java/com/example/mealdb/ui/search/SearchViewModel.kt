@@ -6,7 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import com.example.mealdb.base.BaseViewModel
 import com.example.mealdb.data.model.Meal
 import com.example.mealdb.data.repository.MealRepository
-import com.example.mealdb.utils.Constants
+import com.example.mealdb.utils.EXCEPTION_EMPTY_SEARCH_RESULT
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.kotlin.addTo
 import io.reactivex.rxjava3.schedulers.Schedulers
@@ -38,7 +38,7 @@ class SearchViewModel(
                 _isEmpty.value = false
             }, {
                 _isLoading.value = false
-                if (it.message.toString() == Constants.EXCEPTION_EMPTY_SEARCH_RESULT) {
+                if (it.message.toString() == EXCEPTION_EMPTY_SEARCH_RESULT) {
                     _isEmpty.value = true
                     _searchMeal.value = emptyList()
                 } else {
