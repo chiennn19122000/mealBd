@@ -67,7 +67,7 @@
                 android:background="@drawable/bg_text_search"
                 android:drawablePadding="@dimen/dp_4"
                 android:elevation="@dimen/dp_4"
-                android:hint="@string/text_search_hint"
+                android:hint="@string/text_search"
                 android:padding="@dimen/dp_8"
                 android:textSize="@dimen/sp_20"
                 app:drawableStartCompat="@drawable/ic_search"

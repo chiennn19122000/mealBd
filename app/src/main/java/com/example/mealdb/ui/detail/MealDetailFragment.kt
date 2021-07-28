@@ -4,14 +4,15 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.mealdb.R
 import com.example.mealdb.base.BaseFragment
+import com.example.mealdb.data.model.Meal
 import com.example.mealdb.databinding.FragmentMealDetailBinding
-import com.example.mealdb.ui.meal.MealFragmentDirections
-import kotlinx.android.synthetic.main.fragment_meal_detail.*
+import com.example.mealdb.ui.adapter.RelatedAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class MealDetailFragment: BaseFragment<FragmentMealDetailBinding>() {
+class MealDetailFragment : BaseFragment<FragmentMealDetailBinding>() {
     override val layoutResource = R.layout.fragment_meal_detail
     override val viewModel by viewModel<MealDetailViewModel>()
+    private val adapter = RelatedAdapter(::clickRelatedMeal)
 
     private val args: MealDetailFragmentArgs by navArgs()
 
@@ -22,6 +23,7 @@ class MealDetailFragment: BaseFragment<FragmentMealDetailBinding>() {
         binding?.apply {
             lifecycleOwner = viewLifecycleOwner
             mealDetailVM = viewModel
+            recyclerRelate.adapter = adapter
         }
         viewModel.getMealDetail(args.meal.idMeal)
         viewModel.checkFavorite(args.meal.idMeal)
@@ -40,5 +42,10 @@ class MealDetailFragment: BaseFragment<FragmentMealDetailBinding>() {
                 findNavController().navigate(action)
             }
         }
+    }
+
+    private fun clickRelatedMeal(meal: Meal) {
+        val action = MealDetailFragmentDirections.actionMealDetailToMealDetail(meal)
+        findNavController().navigate(action)
     }
 }

@@ -2,21 +2,26 @@ package com.example.mealdb.data.source.remote
 
 import com.example.mealdb.data.model.*
 import io.reactivex.rxjava3.core.Observable
-import io.reactivex.rxjava3.core.Single
+import okhttp3.ResponseBody
+import retrofit2.Call
 import retrofit2.http.*
 
 interface Api {
-    @GET("categories.php")
+    @GET("api/json/v1/1/categories.php")
     fun getCategory(): Observable<CategoryResponse>
 
-    @GET("filter.php")
+    @GET("api/json/v1/1/filter.php")
     fun getMealByCategory(
         @Query("c") category: String
     ): Observable<MealResponse>
 
-    @GET("search.php")
+    @GET("api/json/v1/1/search.php")
     fun searchMeal(@Query("s") key: String): Observable<MealResponse>
 
-    @GET("lookup.php")
+    @GET("api/json/v1/1/lookup.php")
     fun getMealById(@Query("i") id: String): Observable<MealDetailResponse>
+
+    @Streaming
+    @GET("{url}")
+    fun downloadFileWithFixedUrl(@Path("url") url: String): Call<ResponseBody>
 }

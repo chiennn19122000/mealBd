@@ -81,7 +81,7 @@
                 android:layout_marginVertical="@dimen/dp_8"
                 android:background="@drawable/bg_text_search"
                 android:elevation="@dimen/dp_4"
-                android:hint="@string/text_search_hint"
+                android:hint="@string/text_search"
                 android:imeOptions="actionSearch"
                 android:importantForAutofill="no"
                 android:inputType="text"

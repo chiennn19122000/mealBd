@@ -8,175 +8,212 @@
             type="com.example.mealdb.ui.detail.MealDetailViewModel" />
     </data>
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/color_aqua_spring">
-        
-        <androidx.core.widget.NestedScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+   <ScrollView
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+       <androidx.coordinatorlayout.widget.CoordinatorLayout
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:background="@color/color_aqua_spring">
 
-                <ImageView
-                    android:id="@+id/imageMealDetail"
-                    android:layout_width="@dimen/dp_150"
-                    android:layout_height="@dimen/dp_150"
-                    android:layout_marginTop="@dimen/dp_75"
-                    app:image="@{mealDetailVM.meal.get(0).strMealThumb}"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+           <androidx.core.widget.NestedScrollView
+               android:layout_width="match_parent"
+               android:layout_height="match_parent">
 
-                <ImageButton
-                    android:id="@+id/buttonFavorite"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@android:color/transparent"
-                    android:contentDescription="@null"
-                    android:src="@{mealDetailVM.isFavorite() ? @drawable/ic_favorite : @drawable/ic_un_favorite}"
-                    app:layout_constraintBottom_toBottomOf="@+id/imageMealDetail"
-                    app:layout_constraintEnd_toEndOf="@+id/imageMealDetail" />
+               <androidx.constraintlayout.widget.ConstraintLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent">
 
-                <View
-                    android:id="@+id/viewDescription"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_marginHorizontal="@dimen/dp_10"
-                    android:layout_marginTop="@dimen/dp_16"
-                    android:alpha="0.4"
-                    app:layout_constraintBottom_toBottomOf="@id/textDescription"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/imageMealDetail"/>
+                   <ImageView
+                       android:id="@+id/imageMealDetail"
+                       android:layout_width="@dimen/dp_150"
+                       android:layout_height="@dimen/dp_150"
+                       android:layout_marginTop="@dimen/dp_75"
+                       app:image="@{mealDetailVM.meal.get(0).strMealThumb}"
+                       app:layout_constraintEnd_toEndOf="parent"
+                       app:layout_constraintStart_toStartOf="parent"
+                       app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:id="@+id/textNameMeal"
-                    style="@style/TextViewBold"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/dp_10"
-                    android:textColor="@android:color/black"
-                    android:textSize="@dimen/sp_18"
-                    android:text="@string/title_instructions"
-                    android:textStyle="bold"
-                    android:background="@android:color/white"
-                    app:layout_constraintEnd_toEndOf="@+id/viewDescription"
-                    app:layout_constraintStart_toStartOf="@+id/viewDescription"
-                    app:layout_constraintTop_toTopOf="@+id/viewDescription"
-                    tools:text="@tools:sample/lorem" />
+                   <ImageButton
+                       android:id="@+id/buttonFavorite"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:background="@android:color/transparent"
+                       android:contentDescription="@null"
+                       android:src="@{mealDetailVM.isFavorite() ? @drawable/ic_favorite : @drawable/ic_un_favorite}"
+                       app:layout_constraintBottom_toBottomOf="@+id/imageMealDetail"
+                       app:layout_constraintEnd_toEndOf="@+id/imageMealDetail" />
 
-                <TextView
-                    android:id="@+id/textDescription"
-                    style="@style/TextViewRegular"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/dp_10"
-                    android:textColor="@android:color/black"
-                    android:textSize="@dimen/sp_18"
-                    android:text="@{mealDetailVM.meal.get(0).strInstructions}"
-                    android:background="@android:color/white"
-                    app:layout_constraintBottom_toBottomOf="@+id/viewDescription"
-                    app:layout_constraintEnd_toEndOf="@+id/viewDescription"
-                    app:layout_constraintStart_toStartOf="@+id/viewDescription"
-                    app:layout_constraintTop_toBottomOf="@+id/textNameMeal"
-                    tools:text="@tools:sample/lorem" />
+                   <View
+                       android:id="@+id/viewDescription"
+                       android:layout_width="0dp"
+                       android:layout_height="0dp"
+                       android:layout_marginHorizontal="@dimen/dp_10"
+                       android:layout_marginTop="@dimen/dp_16"
+                       android:alpha="0.4"
+                       app:layout_constraintBottom_toBottomOf="@id/textDescription"
+                       app:layout_constraintEnd_toEndOf="parent"
+                       app:layout_constraintStart_toStartOf="parent"
+                       app:layout_constraintTop_toBottomOf="@id/imageMealDetail"/>
 
-                <View
-                    android:id="@+id/viewIngredient"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_marginHorizontal="@dimen/dp_10"
-                    android:layout_marginTop="@dimen/dp_16"
-                    android:alpha="0.4"
-                    android:background="@android:color/white"
-                    app:layout_constraintBottom_toBottomOf="@id/textIngredientSpecific"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/viewDescription" />
+                   <TextView
+                       android:id="@+id/textNameMeal"
+                       style="@style/TextViewBold"
+                       android:layout_width="0dp"
+                       android:layout_height="wrap_content"
+                       android:layout_marginHorizontal="@dimen/dp_10"
+                       android:textColor="@android:color/black"
+                       android:textSize="@dimen/sp_18"
+                       android:text="@string/title_instructions"
+                       android:textStyle="bold"
+                       android:background="@android:color/white"
+                       app:layout_constraintEnd_toEndOf="@+id/viewDescription"
+                       app:layout_constraintStart_toStartOf="@+id/viewDescription"
+                       app:layout_constraintTop_toTopOf="@+id/viewDescription"
+                       tools:text="@tools:sample/lorem" />
 
-                <TextView
-                    android:id="@+id/textIngredient"
-                    style="@style/TextViewBold"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/dp_10"
-                    android:text="@string/title_ingredient"
-                    android:textColor="@android:color/black"
-                    android:textSize="@dimen/sp_18"
-                    android:textStyle="bold"
-                    android:background="@android:color/white"
-                    app:layout_constraintEnd_toEndOf="@+id/viewIngredient"
-                    app:layout_constraintStart_toStartOf="@+id/viewIngredient"
-                    app:layout_constraintTop_toTopOf="@+id/viewIngredient" />
+                   <TextView
+                       android:id="@+id/textDescription"
+                       style="@style/TextViewRegular"
+                       android:layout_width="0dp"
+                       android:layout_height="wrap_content"
+                       android:layout_marginHorizontal="@dimen/dp_10"
+                       android:textColor="@android:color/black"
+                       android:textSize="@dimen/sp_18"
+                       android:text="@{mealDetailVM.meal.get(0).strInstructions}"
+                       android:background="@android:color/white"
+                       app:layout_constraintBottom_toBottomOf="@+id/viewDescription"
+                       app:layout_constraintEnd_toEndOf="@+id/viewDescription"
+                       app:layout_constraintStart_toStartOf="@+id/viewDescription"
+                       app:layout_constraintTop_toBottomOf="@+id/textNameMeal"
+                       tools:text="@tools:sample/lorem" />
 
-                <TextView
-                    android:id="@+id/textIngredientSpecific"
-                    style="@style/TextViewRegular"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/dp_10"
-                    android:textColor="@android:color/black"
-                    android:textSize="@dimen/sp_18"
-                    android:text="@{mealDetailVM.ingredient}"
-                    android:background="@android:color/white"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="@+id/viewIngredient"
-                    app:layout_constraintStart_toStartOf="@+id/viewIngredient"
-                    app:layout_constraintTop_toBottomOf="@+id/textIngredient"
-                    tools:text="@tools:sample/lorem/random" />
+                   <View
+                       android:id="@+id/viewIngredient"
+                       android:layout_width="0dp"
+                       android:layout_height="0dp"
+                       android:layout_marginHorizontal="@dimen/dp_10"
+                       android:layout_marginTop="@dimen/dp_16"
+                       android:alpha="0.4"
+                       android:background="@android:color/white"
+                       app:layout_constraintBottom_toBottomOf="@id/textIngredientSpecific"
+                       app:layout_constraintEnd_toEndOf="parent"
+                       app:layout_constraintStart_toStartOf="parent"
+                       app:layout_constraintTop_toBottomOf="@id/viewDescription" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.core.widget.NestedScrollView>
+                   <TextView
+                       android:id="@+id/textIngredient"
+                       style="@style/TextViewBold"
+                       android:layout_width="0dp"
+                       android:layout_height="wrap_content"
+                       android:layout_marginHorizontal="@dimen/dp_10"
+                       android:text="@string/title_ingredient"
+                       android:textColor="@android:color/black"
+                       android:textSize="@dimen/sp_18"
+                       android:textStyle="bold"
+                       android:background="@android:color/white"
+                       app:layout_constraintEnd_toEndOf="@+id/viewIngredient"
+                       app:layout_constraintStart_toStartOf="@+id/viewIngredient"
+                       app:layout_constraintTop_toTopOf="@+id/viewIngredient" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bg_toolbar"
-            android:elevation="@dimen/dp_4">
+                   <TextView
+                       android:id="@+id/textIngredientSpecific"
+                       style="@style/TextViewRegular"
+                       android:layout_width="0dp"
+                       android:layout_height="wrap_content"
+                       android:layout_marginHorizontal="@dimen/dp_10"
+                       android:background="@android:color/white"
+                       android:text="@{mealDetailVM.ingredient}"
+                       android:textColor="@android:color/black"
+                       android:textSize="@dimen/sp_18"
+                       app:layout_constraintBottom_toBottomOf="parent"
+                       app:layout_constraintEnd_toEndOf="@+id/viewIngredient"
+                       app:layout_constraintHorizontal_bias="0.45"
+                       app:layout_constraintStart_toStartOf="@+id/viewIngredient"
+                       app:layout_constraintTop_toBottomOf="@+id/textIngredient"
+                       app:layout_constraintVertical_bias="0.0" />
 
-            <ImageButton
-                android:id="@+id/buttonBack"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginStart="@dimen/dp_4"
-                android:background="@android:color/transparent"
-                android:contentDescription="@null"
-                android:src="@drawable/ic_back"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintDimensionRatio="1:1"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                   <TextView
+                       android:id="@+id/textRelated"
+                       android:layout_width="0dp"
+                       android:layout_height="wrap_content"
+                       android:layout_marginHorizontal="@dimen/dp_10"
+                       android:layout_marginTop="32dp"
+                       android:background="@android:color/white"
+                       android:text="@string/title_related"
+                       android:textColor="@android:color/black"
+                       android:textSize="@dimen/sp_18"
+                       android:textStyle="bold"
+                       app:layout_constraintEnd_toEndOf="@+id/viewIngredient"
+                       app:layout_constraintHorizontal_bias="0.65"
+                       app:layout_constraintStart_toStartOf="@+id/viewIngredient"
+                       app:layout_constraintTop_toBottomOf="@+id/textIngredientSpecific" />
 
-            <TextView
-                android:id="@+id/textMealDetailTitle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="@dimen/dp_8"
-                android:elevation="@dimen/dp_4"
-                android:padding="@dimen/dp_8"
-                android:text="@{mealDetailVM.meal.get(0).strMeal}"
-                android:textAlignment="center"
-                android:textColor="@android:color/black"
-                android:textSize="@dimen/sp_20"
-                android:textStyle="bold"
-                android:ellipsize="end"
-                android:maxLines="1"
-                android:layout_marginEnd="@dimen/dp_56"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/buttonBack"
-                app:layout_constraintTop_toTopOf="parent" />
+                   <androidx.recyclerview.widget.RecyclerView
+                       android:id="@+id/recyclerRelate"
+                       android:layout_width="0dp"
+                       android:layout_height="wrap_content"
+                       android:background="@android:color/white"
+                       android:orientation="horizontal"
+                       android:layout_marginBottom="@dimen/dp_16"
+                       app:data="@{mealDetailVM.mealRelated}"
+                       app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                       app:layout_constraintBottom_toBottomOf="parent"
+                       app:layout_constraintEnd_toEndOf="parent"
+                       app:layout_constraintHorizontal_bias="0.0"
+                       app:layout_constraintStart_toStartOf="@id/textRelated"
+                       app:layout_constraintTop_toBottomOf="@id/textRelated"
+                       app:spanCount="1"
+                       tools:listitem="@layout/item_related_meal" />
+               </androidx.constraintlayout.widget.ConstraintLayout>
+           </androidx.core.widget.NestedScrollView>
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+           <androidx.constraintlayout.widget.ConstraintLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:background="@drawable/bg_toolbar"
+               android:elevation="@dimen/dp_4">
 
-        <include
-            layout="@layout/dialog_loading"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:loading="@{mealDetailVM.isLoading()}" />
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+               <ImageButton
+                   android:id="@+id/buttonBack"
+                   android:layout_width="0dp"
+                   android:layout_height="0dp"
+                   android:layout_marginStart="@dimen/dp_4"
+                   android:background="@android:color/transparent"
+                   android:contentDescription="@null"
+                   android:src="@drawable/ic_back"
+                   app:layout_constraintBottom_toBottomOf="parent"
+                   app:layout_constraintDimensionRatio="1:1"
+                   app:layout_constraintStart_toStartOf="parent"
+                   app:layout_constraintTop_toTopOf="parent" />
+
+               <TextView
+                   android:id="@+id/textMealDetailTitle"
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content"
+                   android:layout_marginVertical="@dimen/dp_8"
+                   android:elevation="@dimen/dp_4"
+                   android:padding="@dimen/dp_8"
+                   android:text="@{mealDetailVM.meal.get(0).strMeal}"
+                   android:textAlignment="center"
+                   android:textColor="@android:color/black"
+                   android:textSize="@dimen/sp_20"
+                   android:textStyle="bold"
+                   android:ellipsize="end"
+                   android:maxLines="1"
+                   android:layout_marginEnd="@dimen/dp_56"
+                   app:layout_constraintBottom_toBottomOf="parent"
+                   app:layout_constraintEnd_toEndOf="parent"
+                   app:layout_constraintStart_toEndOf="@id/buttonBack"
+                   app:layout_constraintTop_toTopOf="parent" />
+
+           </androidx.constraintlayout.widget.ConstraintLayout>
+
+           <include
+               layout="@layout/dialog_loading"
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               app:loading="@{mealDetailVM.isLoading()}" />
+       </androidx.coordinatorlayout.widget.CoordinatorLayout>
+   </ScrollView>
 </layout>
